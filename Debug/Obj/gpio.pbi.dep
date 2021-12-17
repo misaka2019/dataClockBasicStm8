@@ -1,0 +1,3 @@
+gpio.pbi: F:\stm8Projects\gpio.c F:\stm8Projects/gpio.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\iostm8s105c6.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc/io_macros.h

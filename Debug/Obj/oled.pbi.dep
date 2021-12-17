@@ -1,0 +1,5 @@
+oled.pbi: F:\stm8Projects\oled.c \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\iostm8s105c6.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc/io_macros.h \
+  F:\stm8Projects/oled.h F:\stm8Projects/spi.h F:\stm8Projects/gpio.h \
+  F:\stm8Projects/oledfont.h

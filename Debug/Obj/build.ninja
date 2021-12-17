@@ -1,0 +1,35 @@
+#Generating source browse information for project mode
+
+
+#Abbreviations
+cc = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\SourceIndexer.exe
+ll = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\PbdLink.exe
+bd = C$:\Program$ Files$ (x86)\IAR$ Systems\Embedded$ Workbench$ 8.3\common\bin\makeBrowseData.exe
+
+
+
+#Rules
+rule index
+  depfile = $out.dep
+  command = $cc -out=$out -f $in
+rule link
+  command = $ll -M $out $in
+rule browsedata
+  command = $bd $in -output  $out
+
+
+
+#Build steps
+build delay.pbi : index delay.xcl
+build gpio.pbi : index gpio.xcl
+build oled.pbi : index oled.xcl
+build spi.pbi : index spi.xcl
+build time2.pbi : index time2.xcl
+build main.pbi : index main.xcl
+build mode_part0.pbi : link delay.pbi gpio.pbi
+build mode_part1.pbi : link oled.pbi spi.pbi
+build mode_part2.pbi : link time2.pbi main.pbi
+build mode.pbd : link mode_part0.pbi mode_part1.pbi mode_part2.pbi
+build mode.pbw : browsedata mode.pbd
+
+
