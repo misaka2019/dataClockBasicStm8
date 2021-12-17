@@ -1,0 +1,284 @@
+###############################################################################
+#
+# IAR ELF Linker V3.10.1.201 for STM8                     26/Nov/2018  21:38:47
+# Copyright 2010-2017 IAR Systems AB.
+#
+#    Output file  =  D:\单片机\STM8\OLED_text\usr\Debug\Exe\OLED.out
+#    Map file     =  D:\单片机\STM8\OLED_text\usr\Debug\List\OLED.map
+#    Command line =  
+#        -f C:\Users\a\AppData\Local\Temp\EW6BD5.tmp
+#        (D:\单片机\STM8\OLED_text\usr\Debug\Obj\gpio.o
+#        D:\单片机\STM8\OLED_text\usr\Debug\Obj\main.o
+#        D:\单片机\STM8\OLED_text\usr\Debug\Obj\oled.o
+#        D:\单片机\STM8\OLED_text\usr\Debug\Obj\spi.o --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb -o
+#        D:\单片机\STM8\OLED_text\usr\Debug\Exe\OLED.out --map
+#        D:\单片机\STM8\OLED_text\usr\Debug\List\OLED.map --config
+#        D:\IAR\stm8\config\lnkstm8s105c6.icf --config_def _CSTACK_SIZE=0x100
+#        --config_def _HEAP_SIZE=0x100 --entry __iar_program_start --debug_lib)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+__SystemLibrary            = DLib
+__code_model               = small
+__core                     = stm8
+__data_model               = medium
+__dlib_file_descriptor     = 0
+__dlib_full_locale_support = 0
+__rt_version               = 4
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at start of [0x000000-0x0000ff] { rw section .vregs };
+"A1":  place at end of [0x000000-0x0007ff] { block CSTACK };
+"P2":  place in [from 0x000000 to 0x0007ff] {
+          block HEAP, rw section __DLIB_PERTHREAD, rw section .far.bss,
+          rw section .far.data, rw section .far.noinit,
+          rw section .far_func.textrw, rw section .huge.bss,
+          rw section .huge.data, rw section .huge.noinit,
+          rw section .huge_func.textrw, rw section .iar.dynexit,
+          rw section .near.bss, rw section .near.data, rw section .near.noinit,
+          rw section .near_func.textrw };
+"A2":  place at start of [0x008000-0x00ffff] { block INTVEC };
+"P3":  place in [from 0x008000 to 0x00ffff] {
+          ro section __DLIB_PERTHREAD_init, ro section .far.data_init,
+          ro section .far_func.textrw_init, ro section .huge.data_init,
+          ro section .huge_func.textrw_init, ro section .iar.init_table,
+          ro section .init_array, ro section .near.data_init,
+          ro section .near.rodata, ro section .near_func.text,
+          ro section .near_func.textrw_init, ro section .tiny.data_init,
+          ro section .tiny.rodata_init };
+"P4":  place in [from 0x008000 to 0x00ffff] {
+          ro section .far.rodata, ro section .far_func.text };
+"P5":  place in [from 0x008000 to 0x00ffff] {
+          ro section .huge.rodata, ro section .huge_func.text };
+do not initialize {
+   rw section .eeprom.noinit, rw section .far.noinit, rw section .huge.noinit,
+   rw section .near.noinit, rw section .tiny.noinit, rw section .vregs };
+
+  Section          Kind      Address    Size  Object
+  -------          ----      -------    ----  ------
+"A0":                                   0x10
+  .vregs           uninit   0x000000    0x10  vregs.o [4]
+                          - 0x000010    0x10
+
+"P2":                                  0x400
+  .near.bss        zero     0x000010   0x400  oled.o [1]
+                          - 0x000410   0x400
+
+"A1":                                  0x100
+  CSTACK                    0x000700   0x100  <Block>
+    CSTACK         uninit   0x000700   0x100  <Block tail>
+                          - 0x000800   0x100
+
+Absolute sections, part 1 of 2:          0x1
+  .near.noinit     uninit   0x005005     0x1  spi.o [1]
+                          - 0x005006     0x1
+
+Absolute sections, part 2 of 2:          0x3
+  .near.noinit     uninit   0x005007     0x1  gpio.o [1]
+  .near.noinit     uninit   0x005008     0x1  gpio.o [1]
+  .near.noinit     uninit   0x005009     0x1  gpio.o [1]
+                          - 0x00500a     0x3
+
+"A2":                                   0x80
+  INTVEC                    0x008000    0x80  <Block>
+    .intvec        const    0x008000    0x80  interrupt.o [4]
+                          - 0x008080    0x80
+
+"P3-P5":                              0x1d3d
+  .near.rodata     const    0x008080   0xd5c  oled.o [1]
+  .near.rodata     const    0x008ddc   0x5f0  oled.o [1]
+  .near.rodata     const    0x0093cc   0x474  oled.o [1]
+  .near_func.text  ro code  0x009840   0x13d  oled.o [1]
+  .near_func.text  ro code  0x00997d   0x10c  oled.o [1]
+  .near_func.text  ro code  0x009a89    0xa6  oled.o [1]
+  .near_func.text  ro code  0x009b2f    0x7d  oled.o [1]
+  .near_func.text  ro code  0x009bac    0x64  vreg_util.o [4]
+  .near_func.text  ro code  0x009c10    0x55  main.o [1]
+  .near_func.text  ro code  0x009c65    0x54  spi.o [1]
+  .near_func.text  ro code  0x009cb9    0x26  short.o [4]
+  .iar.init_table  const    0x009cdf     0x8  - Linker created -
+  .near_func.text  ro code  0x009ce7    0x1e  init_small.o [4]
+  .near_func.text  ro code  0x009d05    0x1a  oled.o [1]
+  .near_func.text  ro code  0x009d1f    0x19  gpio.o [1]
+  .near.rodata     const    0x009d38    0x16  main.o [1]
+  .near_func.text  ro code  0x009d4e    0x14  init.o [4]
+  .near_func.text  ro code  0x009d62    0x14  __dbg_xxexit.o [3]
+  .near_func.text  ro code  0x009d76    0x13  cstartup.o [4]
+  .near.rodata     const    0x009d89     0xb  main.o [1]
+  .near.rodata     const    0x009d94     0x9  main.o [1]
+  .near.rodata     const    0x009d9d     0x8  main.o [1]
+  .near.rodata     const    0x009da5     0x6  main.o [1]
+  .near_func.text  ro code  0x009dab     0x5  cexit.o [4]
+  .near_func.text  ro code  0x009db0     0x3  interrupt.o [4]
+  .near_func.text  ro code  0x009db3     0x3  low_level_init.o [4]
+  .near_func.text  ro code  0x009db6     0x3  exit.o [4]
+  .near_func.text  ro code  0x009db9     0x3  unhandled_exception.o [4]
+  .near_func.text  ro code  0x009dbc     0x1  __dbg_break.o [3]
+                          - 0x009dbd  0x1d3d
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address   Size
+          -------   ----
+Zero (__iar_zero_init2)
+    1 destination range, total size 0x400:
+          0x000010  0x400
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                 ro code  ro data  rw data  rw data
+                                                       (abs)
+    ------                 -------  -------  -------  -------
+D:\单片机\STM8\OLED_text\usr\Debug\Obj: [1]
+    gpio.o                      25                          3
+    main.o                      85       56
+    oled.o                     902    6 080    1 024
+    spi.o                       84                          1
+    ---------------------------------------------------------
+    Total:                   1 096    6 136    1 024        4
+
+command line: [2]
+    ---------------------------------------------------------
+    Total:
+
+dbgstm8smd.a: [3]
+    __dbg_break.o                1
+    __dbg_xxexit.o              20
+    ---------------------------------------------------------
+    Total:                      21
+
+dlstm8smn.a: [4]
+    cexit.o                      5
+    cstartup.o                  19
+    exit.o                       3
+    init.o                      20
+    init_small.o                30
+    interrupt.o                  3      128
+    low_level_init.o             3
+    short.o                     38
+    unhandled_exception.o        3
+    vreg_util.o                100
+    vregs.o                                       16
+    ---------------------------------------------------------
+    Total:                     224      128       16
+
+    Linker created                        8      256
+-------------------------------------------------------------
+    Grand Total:             1 341    6 272    1 296        4
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                    Address   Size  Type      Object
+-----                    -------   ----  ----      ------
+.iar.init_table$$Base   0x009cdf          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x009ce7          --   Gb  - Linker created -
+?b0                     0x000000         Data  Gb  vregs.o [4]
+?b1                     0x000001         Data  Gb  vregs.o [4]
+?b10                    0x00000a         Data  Gb  vregs.o [4]
+?b11                    0x00000b         Data  Gb  vregs.o [4]
+?b12                    0x00000c         Data  Gb  vregs.o [4]
+?b13                    0x00000d         Data  Gb  vregs.o [4]
+?b14                    0x00000e         Data  Gb  vregs.o [4]
+?b15                    0x00000f         Data  Gb  vregs.o [4]
+?b2                     0x000002         Data  Gb  vregs.o [4]
+?b3                     0x000003         Data  Gb  vregs.o [4]
+?b4                     0x000004         Data  Gb  vregs.o [4]
+?b5                     0x000005         Data  Gb  vregs.o [4]
+?b6                     0x000006         Data  Gb  vregs.o [4]
+?b7                     0x000007         Data  Gb  vregs.o [4]
+?b8                     0x000008         Data  Gb  vregs.o [4]
+?b9                     0x000009         Data  Gb  vregs.o [4]
+?e0                     0x000001         Data  Gb  vregs.o [4]
+?e1                     0x000005         Data  Gb  vregs.o [4]
+?e2                     0x000009         Data  Gb  vregs.o [4]
+?e3                     0x00000d         Data  Gb  vregs.o [4]
+?epilogue_l2            0x009c0c         Code  Gb  vreg_util.o [4]
+?epilogue_l2_l3         0x009c09         Code  Gb  vreg_util.o [4]
+?l0                     0x000000         Data  Gb  vregs.o [4]
+?l1                     0x000004         Data  Gb  vregs.o [4]
+?l2                     0x000008         Data  Gb  vregs.o [4]
+?l3                     0x00000c         Data  Gb  vregs.o [4]
+?mul16_x_x_w0           0x009cb9         Code  Gb  short.o [4]
+?pop_l2                 0x009beb         Code  Gb  vreg_util.o [4]
+?pop_l3                 0x009bf6         Code  Gb  vreg_util.o [4]
+?push_l2                0x009bc4         Code  Gb  vreg_util.o [4]
+?push_l3                0x009bc9         Code  Gb  vreg_util.o [4]
+?push_w4                0x009bac         Code  Gb  vreg_util.o [4]
+?sll16_x_x_a            0x009cd7         Code  Gb  short.o [4]
+?w0                     0x000000         Data  Gb  vregs.o [4]
+?w1                     0x000002         Data  Gb  vregs.o [4]
+?w2                     0x000004         Data  Gb  vregs.o [4]
+?w3                     0x000006         Data  Gb  vregs.o [4]
+?w4                     0x000008         Data  Gb  vregs.o [4]
+?w5                     0x00000a         Data  Gb  vregs.o [4]
+?w6                     0x00000c         Data  Gb  vregs.o [4]
+?w7                     0x00000e         Data  Gb  vregs.o [4]
+CSTACK$$Base            0x000700          --   Gb  - Linker created -
+CSTACK$$Limit           0x000800          --   Gb  - Linker created -
+GPIO_Init               0x009d1f   0x19  Code  Gb  gpio.o [1]
+INTVEC$$Base            0x008000          --   Gb  - Linker created -
+INTVEC$$Limit           0x008080          --   Gb  - Linker created -
+OLED_Clear              0x0099c4   0x31  Code  Gb  oled.o [1]
+OLED_DLY_ms             0x009d05   0x1a  Code  Gb  oled.o [1]
+OLED_DrawPoint          0x009a89   0xa6  Code  Gb  oled.o [1]
+OLED_GRAM               0x000010  0x400  Data  Gb  oled.o [1]
+OLED_Init               0x0099f5   0x94  Code  Gb  oled.o [1]
+OLED_Refresh_Gram       0x00997d   0x47  Code  Gb  oled.o [1]
+OLED_ShowChar           0x009840  0x13d  Code  Gb  oled.o [1]
+OLED_ShowString         0x009b2f   0x7d  Code  Gb  oled.o [1]
+Region$$Table$$Base     0x009cdf          --   Gb  - Linker created -
+Region$$Table$$Limit    0x009ce7          --   Gb  - Linker created -
+SPI_WriteByte           0x009c65   0x44  Code  Gb  spi.o [1]
+WriteCmd                0x009ca9    0x5  Code  Gb  spi.o [1]
+WriteData               0x009cae    0xb  Code  Gb  spi.o [1]
+_A_PB_CR1               0x005008    0x1  Data  Gb  gpio.o [1]
+_A_PB_CR2               0x005009    0x1  Data  Gb  gpio.o [1]
+_A_PB_DDR               0x005007    0x1  Data  Gb  gpio.o [1]
+_A_PB_ODR               0x005005    0x1  Data  Gb  spi.o [1]
+__DebugBreak            0x009dbc    0x1  Code  Gb  __dbg_break.o [3]
+__exit                  0x009d62   0x14  Code  Gb  __dbg_xxexit.o [3]
+__iar_data_init2        0x009d4e   0x14  Code  Gb  init.o [4]
+__iar_program_start     0x009d76         Code  Gb  cstartup.o [4]
+__iar_unhandled_exception
+                        0x009db9         Code  Gb  unhandled_exception.o [4]
+__iar_zero_init2        0x009ce7         Code  Gb  init_small.o [4]
+__intvec                0x008000         Data  Gb  interrupt.o [4]
+__low_level_init        0x009db3    0x3  Code  Gb  low_level_init.o [4]
+_exit                   0x009dab         Code  Gb  cexit.o [4]
+asc2_1206               0x0093cc  0x474  Data  Gb  oled.o [1]
+asc2_1608               0x008ddc  0x5f0  Data  Gb  oled.o [1]
+asc2_2412               0x008080  0xd5c  Data  Gb  oled.o [1]
+exit                    0x009db6    0x3  Code  Gb  exit.o [4]
+main                    0x009c10   0x55  Code  Gb  main.o [1]
+
+
+[1] = D:\单片机\STM8\OLED_text\usr\Debug\Obj
+[2] = command line
+[3] = dbgstm8smd.a
+[4] = dlstm8smn.a
+
+  1 341 bytes of readonly  code memory
+  6 272 bytes of readonly  data memory
+  1 296 bytes of readwrite data memory (+ 4 absolute)
+
+Errors: none
+Warnings: none
